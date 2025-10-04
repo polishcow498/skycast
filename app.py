@@ -17,14 +17,6 @@ with open("worldcities.csv", encoding="utf-8") as file:
 app = Flask(__name__)
 api = "0a4756309e70131e9c6ed76856e2fa5f"
 
-# Example country to city mapping (expand this as needed)
-country_cities = {
-    "US": ["New York", "Los Angeles", "Chicago", "Houston", "Miami"],
-    "FR": ["Paris", "Lyon", "Marseille", "Toulouse", "Nice"],
-    "GB": ["London", "Manchester", "Birmingham", "Leeds", "Glasgow"],
-    # Add more countries and cities here
-}
-
 @app.route('/', methods=["GET", "POST"])
 def index():
     weather = None

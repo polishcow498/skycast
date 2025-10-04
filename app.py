@@ -1,6 +1,18 @@
 from flask import Flask, request, render_template
 import requests as req
 from datetime import datetime
+import csv
+from collections import defaultdict
+
+country_cities = defaultdict(list)
+
+with open("worldcities.csv", encoding="utf-8") as file:
+    reader = csv.DictReader(file)
+    for row in reader:
+        country_code = row["iso2"]
+        city = row["city"]
+        country_cities[country_code].append(city)
+
 
 app = Flask(__name__)
 api = "0a4756309e70131e9c6ed76856e2fa5f"
